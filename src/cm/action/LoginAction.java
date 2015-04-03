@@ -3,6 +3,7 @@ package cm.action;
 import Dao.VerCode;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +35,7 @@ public class LoginAction extends ActionSupport {
     public void setUsername(String username) {
         this.username = username;
     }
+
     public String getPassword() {
         return password;
     }
@@ -58,8 +60,8 @@ public class LoginAction extends ActionSupport {
             String s = "请输入完整的信息";
             addActionMessage(s);
             return ERROR;
-      }
-        else if (!ConSql.validationUser(getWay(),getUsername(),getPassword())){//判断用户信息是否正确
+        }
+        else if (!ConSql.validationUser(getWay(), getUsername(), getPassword())){//判断用户信息是否正确
             setPassword("");
             String s ="用户名或者密码错误";
             addActionMessage(s);
@@ -80,7 +82,7 @@ public class LoginAction extends ActionSupport {
         HttpServletResponse resp = ServletActionContext.getResponse();
         VerCode verfi = new VerCode();
         BufferedImage bi = verfi.getImage();
-       ac.getSession().put("verfi",verfi.getText());
+        ac.getSession().put("verfi",verfi.getText());
         VerCode.output(bi,resp.getOutputStream());
     }
 

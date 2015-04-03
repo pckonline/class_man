@@ -27,7 +27,7 @@
   </script>
   <body>
   <s:form name="js" action="Login_login">
-      <s:actionmessage/>
+      <s:actionmessage/><br/>
       <s:textfield name="username" key="user" /><br/>
       <s:textfield name="password" key="pass" /><br/>
       <s:radio name="way" label="请选择登录方式" list="{'wayClass','wayMan'}"/>
