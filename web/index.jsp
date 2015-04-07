@@ -25,6 +25,9 @@
       }
 
   </script>
+  <%
+      request.getSession().setAttribute("user",null);
+  %>
   <body>
   <s:form name="js" action="Login_login">
       <s:actionmessage/><br/>
@@ -36,9 +39,5 @@
       <a href="javascript:_change()">换一张</a>
       <s:submit key="login"/>
   </s:form>
-
-
-
-
   </body>
 </html>

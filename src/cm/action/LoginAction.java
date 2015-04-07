@@ -58,7 +58,7 @@ public class LoginAction extends ActionSupport {
         if (getPassword().equals("")||getUsername().equals("")||getVerfi().equals("")||getWay().equals("")){
             setPassword("");
             String s = "请输入完整的信息";
-            addActionMessage(s);
+            addActionMessage(s);//向请求后的页面发送这个文字信息。
             return ERROR;
         }
         else if (!ConSql.validationUser(getWay(), getUsername(), getPassword())){//判断用户信息是否正确
@@ -72,7 +72,8 @@ public class LoginAction extends ActionSupport {
             return ERROR;
         }
         else {
-              return SUCCESS;
+            ac.getSession().put("user","欢迎您！");
+            return SUCCESS;
       }
 
     }
