@@ -1,9 +1,9 @@
 package cm.action;
 
+import Dao.ConSql;
 import Dao.VerCode;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpServletRequest;
@@ -71,10 +71,14 @@ public class LoginAction extends ActionSupport {
             addActionMessage(s);
             return ERROR;
         }
+        else if (getWay().equals("教师")){
+            ac.getSession().put("user","欢迎您！");
+            return "success-class";
+      }
         else {
             ac.getSession().put("user","欢迎您！");
-            return SUCCESS;
-      }
+            return "success-man";
+        }
 
     }
     public void img() throws IOException {//验证码图片功能

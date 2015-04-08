@@ -1,4 +1,4 @@
-package cm.action;
+package Dao;
 
 import java.sql.*;
 
@@ -43,6 +43,10 @@ public class ConSql {
         ResultSet rs = null;
         int i = 0;
         try{
+            if (way.equals("教师"))
+                way="wayClass";
+            if (way.equals("部门"))
+                way="wayMan";
             con = getCon();
             sta = con.createStatement();
             String sql = "select * from "+way+" where mid="+"'"+mid+"'"+" and "+"mpass="+"'"+mpass+"'"+";";

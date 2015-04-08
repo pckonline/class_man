@@ -9,13 +9,15 @@
         -->
 
 <struts>
-    <constant name="struts.custom.i18n.resources" value="mess"/>
-    <package name="applyRoom" extends="struts-default">
+    <package name="applyRoom" extends="struts-default" >
         <action name="Login_*" class="cm.action.LoginAction" method="{1}">
-            <result name="success">cn/success.jsp</result>
+            <result name="success-class">/cn/success-class.jsp</result>
+            <result name="success-man">/cn/success-man.jsp</result>
             <result name="error">index.jsp</result>
         </action>
         <action name="Verfi_*" class="cm.action.LoginAction" method="{1}">
+        </action>
+        <action name="Classroom_*" class="cm.action.ClassroomAction" method="{1}">
         </action>
     </package>
 </struts>

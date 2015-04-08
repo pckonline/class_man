@@ -11,11 +11,20 @@
 <head>
     <title></title>
 </head>
+
 <body>
+
     <%
         if (request.getSession().getAttribute("user")!=null){//当获得的session不为空时，发送欢迎语句。
     %>
+
     <%=request.getSession().getAttribute("user")%>
+    <s:form action="Classroom_sub" name="su">
+        <s:textfield name="aname" cssStyle="-o-background-size: 300" key="aname"/>
+
+    <s:submit key="sub"/>
+        <a href="/index.jsp">注销</a>
+</s:form>
     <%
     }
     else
@@ -27,5 +36,7 @@
     <%
         }
     %>
+
+
 </body>
 </html>

@@ -5,8 +5,9 @@
   Time: 下午3:19
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"  language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<s:i18n name="cm.action.LoginAction_zh_CN" >
 <html>
   <head>
     <title>Login</title>
@@ -33,7 +34,7 @@
       <s:actionmessage/><br/>
       <s:textfield name="username" key="user" /><br/>
       <s:textfield name="password" key="pass" /><br/>
-      <s:radio name="way" label="请选择登录方式" list="{'wayClass','wayMan'}"/>
+      <s:radio name="way" label="请选择登录方式" list="{'教师','部门'}"/>
       <s:textfield name="verfi" size="3"/>
       <img src="Login_img" id="img">
       <a href="javascript:_change()">换一张</a>
@@ -41,3 +42,4 @@
   </s:form>
   </body>
 </html>
+</s:i18n>
