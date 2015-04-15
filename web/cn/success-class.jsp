@@ -20,11 +20,15 @@
 
     <%=request.getSession().getAttribute("user")%>
     <s:form action="Classroom_sub" name="su">
-        <s:textfield name="aname" cssStyle="-o-background-size: 300" key="aname"/>
+        <s:textfield name="aname" cssStyle="width: 120px" key="aname"/>
+        <s:textfield name="aid" cssStyle="width: 120px" key="aid"/>
+        <s:textarea name="reason" cssStyle="width: 220px;height: 220px;" key="reason"/>
+        <s:textfield name="classid" key="classid"/>
 
-    <s:submit key="sub"/>
-        <a href="/index.jsp">注销</a>
-</s:form>
+        <s:submit key="sub"/>
+
+    </s:form>
+    <a href="/index.jsp">注销</a>
     <%
     }
     else

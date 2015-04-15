@@ -1,6 +1,8 @@
 package cm.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import freemarker.template.Configuration;
+
 
 /**
  * Created by online on 15-4-8.
@@ -13,7 +15,6 @@ public class ClassroomAction  extends ActionSupport{
     private String month;
     private String day;
     private int classid;
-
     public String getYear() {
         return year;
     }
