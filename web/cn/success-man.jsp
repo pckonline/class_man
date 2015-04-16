@@ -16,6 +16,9 @@
     if (request.getSession().getAttribute("user")!=null){//当获得的session不为空时，发送欢迎语句。
 %>
 <%=request.getSession().getAttribute("user")%>
+<s:form action="Man_sub" name="ma">
+
+</s:form>
 <%
 }
 else

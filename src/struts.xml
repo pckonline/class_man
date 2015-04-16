@@ -20,5 +20,7 @@
         </action>
         <action name="Classroom_*" class="cm.action.ClassroomAction" method="{1}">
         </action>
+        <action name="Man_*" class="cm.action.ClassroomAction" method="{1}">
+        </action>
     </package>
 </struts>

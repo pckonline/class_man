@@ -71,4 +71,9 @@ public class ClassroomAction  extends ActionSupport{
         this.classid = classid;
     }
 
+    public String sub(){
+
+        return SUCCESS;
+    }
+
 }

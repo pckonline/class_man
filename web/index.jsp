@@ -35,7 +35,7 @@
       <s:textfield name="username" key="user" /><br/>
       <s:password name="password" key="pass" /><br/>
       <s:radio name="way" label="请选择登录方式" list="{'教师','部门'}"/>
-      <s:textfield name="verfi" size="3"/>
+      <s:textfield name="verfi" size="4"/>
       <img src="Login_img" id="img">
       <a href="javascript:_change()">换一张</a>
       <s:submit key="login"/>
