@@ -66,6 +66,20 @@ else
 
 ##第五天
 
-* 1.表单实现日期选择。其中年为独立选择，月和日联级下拉框。添加了2015-2029年的日期。需要写一个函数判断润年。(一个问题，就是当月和日为关联下拉框时，如何判断年份，能否直接操作。)
+* 1.表单实现日期选择。其中(年)为独立选择，月和日联级下拉框。添加了2015-2029年的日期。需要写一个函数判断润年。(一个问题，就是当月和日为关联下拉框时，如何判断年份，能否直接操作。)
 * 2.修改。因为是由老师自行填写，是否可以以文本框的形式填写。暂时修改为，周，星期，课时。待问题解决后，修改回年月日。
 * 3.把表单的数据填写到数据库中，需要一个判别数据库字段。作用：当填写完成时，判别默认为未批准，当Man同意时，修改为已批准。class  和 man分别可以查看状态。man查看到未批准时，进行批改，是or否   ，class查看时 是：是or否or未批。
+
+##第六天
+
+* 1.当挂到xen时出现错误，简单项目 无法显示验证码，另一个项目无法执行。找到原因，系统的环境变量中没有java   ，因此也了解了tomcat的一点行为，会自动使用jdk编译jar包，运行catalina.bat等文件。
+```
+Using CATALINA_BASE:   /home/online/download/apache-tomcat-8.0.15
+Using CATALINA_HOME:   /home/online/download/apache-tomcat-8.0.15
+Using CATALINA_TMPDIR: /home/online/download/apache-tomcat-8.0.15/temp
+Using JRE_HOME:        /usr/lib/jvm/jdk1.8.0_20
+Using CLASSPATH:       /home/online/download/apache-tomcat-8.0.15/bin/bootstrap.jar:/home/online/download/apache-tomcat-8.0.15/bin/tomcat-juli.jar
+Tomcat started.
+```
+这里JRE_HOME是发现错误原因的主要点。
+* 2.添加了申请表单写入数据库。

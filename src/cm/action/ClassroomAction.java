@@ -1,5 +1,6 @@
 package cm.action;
 
+import Dao.ConApply;
 import com.opensymphony.xwork2.ActionSupport;
 import freemarker.template.Configuration;
 
@@ -9,12 +10,12 @@ import freemarker.template.Configuration;
  */
 public class ClassroomAction  extends ActionSupport{
     private String aname;
-    private int aid;
+    private String  aid;
     private String reason;
     private String year;
     private String month;
     private String day;
-    private int classid;
+    private String classid;
     public String getYear() {
         return year;
     }
@@ -31,11 +32,11 @@ public class ClassroomAction  extends ActionSupport{
         this.aname = aname;
     }
 
-    public int getAid() {
+    public String getAid() {
         return aid;
     }
 
-    public void setAid(int aid) {
+    public void setAid(String aid) {
         this.aid = aid;
     }
 
@@ -63,16 +64,24 @@ public class ClassroomAction  extends ActionSupport{
         this.day = day;
     }
 
-    public int getClassid() {
+    public String getClassid() {
         return classid;
     }
 
-    public void setClassid(int classid) {
+    public void setClassid(String classid) {
         this.classid = classid;
     }
 
     public String sub(){
-
+        String time = getYear()+"-"+getMonth()+"-"+getDay();
+        ConApply.classApply(getAname(),getAid(),getReason(),time,getClassid(),"未批改");
+        setAid("");
+        setAname("");
+        setClassid("");
+        setDay("");
+        setMonth("");
+        setYear("");
+        setReason("");
         return SUCCESS;
     }
 

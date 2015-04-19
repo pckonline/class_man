@@ -21,7 +21,7 @@
     <s:form action="Classroom_sub" name="su">
         <s:textfield name="aname" cssStyle="width: 120px" key="aname"/>
         <s:textfield name="aid" cssStyle="width: 120px" key="aid"/>
-        <s:textarea name="reason" cssStyle="width: 220px;height: 220px;" key="reason"/>
+        <s:textarea name="reason" cssStyle="width: 220px;height: 220px;" label="100字以内" labelposition="top" key="reason"/>
         <s:textfield name="classid" key="classid"/>
         <s:set name="pd"
                value="#{'1':{'1-2','3-4','5-6','7-8','9-10'},

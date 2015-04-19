@@ -1,3 +1,4 @@
+import Dao.ConApply;
 import Dao.ConSql;
 
 
@@ -6,7 +7,7 @@ import Dao.ConSql;
  */
 public class Test {
     public static void main(String[] args) {
-        System.out.println(ConSql.validationUser("wayMan","2015","p123445"));
+        ConApply.classApply("zhangsan","1311058","klasjflksj lksajdfkj萨拉简单符","2015-12","05113","未批改");
     }
 
 }

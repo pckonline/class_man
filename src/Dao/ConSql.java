@@ -36,6 +36,7 @@ public class ConSql {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        closeAll(res,sta,con);
     }
     public static boolean validationUser(String way,String mid,String mpass){//验证用户名和密码是否匹配。
         Connection con = null;
@@ -57,11 +58,24 @@ public class ConSql {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        closeAll(rs,sta,con);
         if (i>0){
             return true;
         }
         else {
             return false;
+        }
+    }
+    public static void closeAll(ResultSet rs,Statement stmt,Connection con){
+        try{
+            if(rs!=null)
+                rs.close();
+            if (stmt!=null)
+                stmt.close();
+            if (con!=null)
+                con.close();
+        } catch (Exception ex) {
+            System.out.println("Error : " + ex.toString());
         }
     }
 }

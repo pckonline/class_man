@@ -19,6 +19,9 @@
         <action name="Verfi_*" class="cm.action.LoginAction" method="{1}">
         </action>
         <action name="Classroom_*" class="cm.action.ClassroomAction" method="{1}">
+            <result name="success">cn/success-class.jsp</result>
+        </action>
+        <action name="Man_*" class="cm.action.ClassroomAction" method="{1}">
         </action>
     </package>
 </struts>
