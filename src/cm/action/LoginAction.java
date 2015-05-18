@@ -72,11 +72,11 @@ public class LoginAction extends ActionSupport {
             return ERROR;
         }
         else if (getWay().equals("教师")){
-            ac.getSession().put("user","欢迎您！");
+            ac.getSession().put("user",getUsername());
             return "success-class";
       }
         else {
-            ac.getSession().put("user","欢迎您！");
+            ac.getSession().put("user",getUsername());
             return "success-man";
         }
 

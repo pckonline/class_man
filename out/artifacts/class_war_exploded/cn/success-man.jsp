@@ -1,3 +1,4 @@
+<%@ page import="Dao.ConSql" %>
 <%--
   Created by IntelliJ IDEA.
   User: online
@@ -13,12 +14,10 @@
 </head>
 <body>
 <%
-    if (request.getSession().getAttribute("user")!=null){//当获得的session不为空时，发送欢迎语句。
+    if (ConSql.validationUserName("部门", (String)request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。
 %>
 <%=request.getSession().getAttribute("user")%>
-<s:form action="Man_sub" name="ma">
-
-</s:form>
+    <a href="/cn/man/no-correct.jsp">查看未批改的申请</a>
 <%
 }
 else
