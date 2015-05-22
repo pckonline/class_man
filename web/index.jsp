@@ -13,11 +13,45 @@
     <title>Login</title>
   </head>
   <style>
-      body{ text-align:center; }
-      .waicheng {color: #0066CC; margin:5px auto; width:800px;background: url(img/1321927523991.jpg) no-repeat;
-          height:600px; border:1px solid #000000;}
-      .waicheng1{background: chartreuse no-repeat;height: 140;width: 260
-      ;margin:3px auto;}
+      body{ text-align:center;background-image: url("/img/login.jpg");background-size:100% 120%  }
+      div.login{
+          position:absolute;
+          top: 26%;
+          left: 45%;
+      }/* 登录框的css*/
+      .cor{
+          position:absolute;
+          top: 64%;
+          left: 10%;
+      }/* 验证码*/
+       a:link,a:visited{
+           display:block;
+           width:60px;
+           font-weight:bold;
+           color:#FFFFFF;
+           background-color:#bebebe;
+           text-align:center;
+           text-decoration:none;
+       }
+       img{
+           height: 4%;
+           width:100%;
+       }
+      ul
+      {
+          list-style-type:none;
+          margin:0;
+          padding:0;
+          overflow:hidden;
+      }
+      .input{
+          border:2px solid;
+          outline: none;
+          border-top-left-radius:2em;
+          border-top-right-radius:2em;
+          border-bottom-right-radius:2em;
+          border-bottom-left-radius:2em;
+      }
   </style>
   <script type="text/javascript">
       function _change(){
@@ -30,16 +64,28 @@
       request.getSession().setAttribute("user",null);
   %>
   <body>
-  <s:form name="js" action="Login_login">
-      <s:actionmessage/><br/>
-      <s:textfield name="username" key="user" /><br/>
-      <s:password name="password" key="pass" /><br/>
-      <s:radio name="way" label="请选择登录方式" list="{'教师','部门'}"/>
-      <s:textfield name="verfi" size="4"/>
-      <img src="Login_img" id="img">
-      <a href="javascript:_change()">换一张</a>
-      <s:submit key="login"/>
-  </s:form>
+  <div class="login">
+      <s:form name="js" action="Login_login">
+          <s:actionmessage/><br/>
+          <s:textfield cssClass="input" name="username" label="用户名" /><br/>
+          <s:password cssClass="input" name="password" label="密码" /><br/>
+          <s:radio name="way" label="请选择登录方式" list="{'教师','部门'}"/>
+          <s:textfield cssClass="input" name="verfi" size="6"/>
+          <s:submit cssStyle="display:block;
+width:40px;
+font-weight:bold;
+color:#FFFFFF;
+background-color:#bebebe;
+text-align:center;" value="登录"/>
+      </s:form>
+      <div class="cor">
+          <ul>
+              <li><img src="Login_img" id="img"></li>
+              <li><a href="javascript:_change()">换一张</a></li>
+          </ul>
+      </div>
+
+  </div>
   </body>
 </html>
 </s:i18n>
