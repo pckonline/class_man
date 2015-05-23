@@ -31,8 +31,8 @@ public class ConApply {
         ResultSet res = null;
         Statement sta = null;
         int i = 0;
-        String kong = "已经批改完毕";
-        String requ = "<table border=\"1\" bordercolor=\"blue\" cellpadding=\"10\" cellspacing=\"0\" width=\"500\">" + "<tr><th>序号</th><th>姓名</th><th>学号</th><th>原由</th></tr>";
+        String kong = "<ul><li>已经批改完毕</li></ul>";
+        String requ = "<ul>" + "<li>序号</li><li>姓名</li><li>学号</li><li>原由</li></ul>";
         try {
             con = ConSql.getCon();
             sta = con.createStatement();
@@ -44,7 +44,7 @@ public class ConApply {
                 String aname = res.getString(2);
                 String aid = res.getString(3);
                 String reason = res.getString(4);
-                requ = requ + "<tr><th>" + id + "</th><th>" + aname + "</th><th>" + aid + "</th><th>" + reason + "</th></tr>";
+                requ = requ + "<ul><li>" + id + "</li><li>" + aname + "</li><li>" + aid + "</li><li class=\"reason\">" + reason + "</li></ul>";
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,7 +76,7 @@ public class ConApply {
         Connection con = null;
         ResultSet res = null;
         Statement sta = null;
-        String requ = "<table border=\"1\" bordercolor=\"blue\" cellpadding=\"10\" cellspacing=\"0\" width=\"500\">" + "<tr><th>序号</th><th>姓名</th><th>学号</th><th>是否批改</th></tr>";
+        String requ = "<ul>" + "<li>序号</li><li>姓名</li><li>学号</li><li>结果</li></ul>";
         try {
             con = ConSql.getCon();
             sta = con.createStatement();
@@ -87,7 +87,7 @@ public class ConApply {
                 String aname = res.getString(2);
                 String aid = res.getString(3);
                 String state = res.getString(7);
-                requ = requ + "<tr><th>" + id + "</th><th>" + aname + "</th><th>" + aid + "</th><th>" + state + "</th></tr>";
+                requ = requ + "<ul><li>" + id + "</li><li>" + aname + "</li><li>" + aid + "</li><li>" + state + "</li></ul>";
             }
         } catch (SQLException e) {
             e.printStackTrace();

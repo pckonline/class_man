@@ -19,7 +19,7 @@
         <action name="Verfi_*" class="cm.action.LoginAction" method="{1}">
         </action>
         <action name="Classroom_*" class="cm.action.ClassroomAction" method="{1}">
-            <result name="success">/cn/success-class.jsp</result>
+            <result name="success">/cn/class/subtab.jsp</result>
         </action>
         <action name="Correct_*" class="cm.action.CorrectAction" method="{1}">
             <result name="success">/cn/man/no-correct.jsp</result>
