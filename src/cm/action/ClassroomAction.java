@@ -2,7 +2,6 @@ package cm.action;
 
 import Dao.ConApply;
 import com.opensymphony.xwork2.ActionSupport;
-import freemarker.template.Configuration;
 
 
 /**

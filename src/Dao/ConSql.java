@@ -26,13 +26,15 @@ public class ConSql {
     }
     public static void insertUser(String way,String mid,String mpass){//功能:增加用户，教务处
         Connection con = null;
-        Statement sta = null;
+        PreparedStatement sta = null;
         ResultSet res = null;
         try{
             con = getCon();
-            sta = con.createStatement();
-            String sql=  "insert into "+way+"(mid,mpass) values("+"'"+mid+"'"+","+"'"+mpass+"'"+");";
-            sta.executeUpdate(sql);
+            String sql=  "insert into "+way+"(mid,mpass) values(?,?);";
+            sta = con.prepareStatement(sql);
+            sta.setString(1,mid);
+            sta.setString(2,mpass);
+            sta.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -40,7 +42,7 @@ public class ConSql {
     }
     public static boolean validationUser(String way,String mid,String mpass){//验证用户名和密码是否匹配。
         Connection con = null;
-        Statement sta = null;
+        PreparedStatement sta = null;
         ResultSet rs = null;
         int i = 0;
         try{
@@ -49,9 +51,11 @@ public class ConSql {
             if (way.equals("部门"))
                 way="wayMan";
             con = getCon();
-            sta = con.createStatement();
-            String sql = "select * from "+way+" where mid="+"'"+mid+"'"+" and "+"mpass="+"'"+mpass+"'"+";";
-            rs=sta.executeQuery(sql);
+            String sql = "select * from "+way+" where mid=? and mpass=?;";
+            sta = con.prepareStatement(sql);
+            sta.setString(1,mid);
+            sta.setString(2,mpass);
+            rs=sta.executeQuery();
         while (rs.next()){
             i++;
         }

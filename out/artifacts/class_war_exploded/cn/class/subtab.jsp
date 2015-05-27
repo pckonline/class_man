@@ -24,9 +24,9 @@
 </head>
 <body>
 
-<%--<%--%>
-    <%--if (ConSql.validationUserName("教师", (String) request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。--%>
-<%--%>--%>
+<%
+    if (ConSql.validationUserName("教师", (String) request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。
+%>
 
 <s:form action="Classroom_sub" name="su">
     <s:textfield cssClass="input" name="aname" cssStyle="width: 220px" label="姓名"/>
@@ -50,19 +50,18 @@ font-weight:bold;
 color:#FFFFFF;
 background-color:#bebebe;
 text-align:center;" value="提交" />
-
 </s:form>
-<%--<%--%>
-<%--}--%>
-<%--else--%>
-<%--{--%>
-<%--%>--%>
-<%--<%--%>
-    <%--request.getRequestDispatcher("/index.jsp").forward(request,response);//当为空时，返回登录界面。--%>
-<%--%>--%>
-<%--<%--%>
-    <%--}--%>
-<%--%>--%>
+<%
+}
+else
+{
+%>
+<%
+    request.getRequestDispatcher("/index.jsp").forward(request,response);//当为空时，返回登录界面。
+%>
+<%
+    }
+%>
 
 </body>
 </html>

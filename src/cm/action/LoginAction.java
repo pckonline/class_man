@@ -55,20 +55,21 @@ public class LoginAction extends ActionSupport {
 
     public String login() throws Exception{//判断是否有未输入的文本框
         ActionContext ac = ActionContext.getContext();
+
         if (getPassword().equals("")||getUsername().equals("")||getVerfi().equals("")||getWay().equals("")){
             setPassword("");
-            String s = "请输入完整的信息";
-            addActionMessage(s);//向请求后的页面发送这个文字信息。
+            String s = "<script language=\"JavaScript\">alert(\"请输入完整的信息！\")</script>";
+            ac.getSession().put("cuowu",s);
             return ERROR;
         }
         else if (!ConSql.validationUser(getWay(), getUsername(), getPassword())){//判断用户信息是否正确
             setPassword("");
-            String s ="用户名或者密码错误";
-            addActionMessage(s);
+            String s ="<script language=\"JavaScript\">alert(\"用户名或密码错误！\")</script>";
+            ac.getSession().put("cuowu",s);
             return ERROR;
         }else if (!getVerfi().equalsIgnoreCase((String)ac.getSession().get("verfi"))){//防止暴力登录，加入验证码功能。不区分大小写
-            String s ="验证码错误";
-            addActionMessage(s);
+            String s ="<script language=\"JavaScript\">alert(\"验证码错误！\")</script>";
+            ac.getSession().put("cuowu",s);
             return ERROR;
         }
         else if (getWay().equals("教师")){

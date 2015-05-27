@@ -86,6 +86,14 @@ text-align:center;" value="登录"/>
       </div>
 
   </div>
+  <%
+      if (request.getSession().getAttribute("cuowu")!=null){
+  %>
+  <%=request.getSession().getAttribute("cuowu")%>
+
+<%
+    }
+%>
   </body>
 </html>
 </s:i18n>
