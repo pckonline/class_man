@@ -40,13 +40,17 @@
             height: 580px;
             width: 1300px;
         }
+        div{
+            width:700px;
+            height:700px;
+        }
     </style>
 </head>
 <body>
-
-    <%--<%--%>
-        <%--if (ConSql.validationUserName("教师",(String)request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。--%>
-    <%--%>--%>
+<%
+    if (ConSql.validationUserName("教师",(String)request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。
+%>
+<div>
     <ul>
         <li style="color:#f75000">欢迎您：<%=request.getSession().getAttribute("user")%></li>
         <li><a href="/cn/success-class.jsp">返回首页</a> <a href="/index.jsp">注销</a></li>
@@ -58,17 +62,19 @@
     <ul>
         <iframe name="iframe_2" frameborder="0"></iframe>
     </ul>
-    <%--<%--%>
-    <%--}--%>
-    <%--else--%>
-    <%--{--%>
-    <%--%>--%>
-    <%--<%--%>
-        <%--request.getRequestDispatcher("/index.jsp").forward(request,response);//当为空时，返回登录界面。--%>
-    <%--%>--%>
-    <%--<%--%>
-        <%--}--%>
-    <%--%>--%>
+</div>
+
+    <%
+    }
+    else
+    {
+    %>
+    <%
+        request.getRequestDispatcher("/index.jsp").forward(request,response);//当为空时，返回登录界面。
+    %>
+    <%
+        }
+    %>
 
 
 </body>

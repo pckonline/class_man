@@ -20,6 +20,10 @@
             border-bottom-right-radius:2em;
             border-bottom-left-radius:2em;
         }
+        div{
+            width:700px;
+            height:700px;
+        }
     </style>
 </head>
 <body>
@@ -27,30 +31,33 @@
 <%
     if (ConSql.validationUserName("教师", (String) request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。
 %>
-
-<s:form action="Classroom_sub" name="su">
-    <s:textfield cssClass="input" name="aname" cssStyle="width: 220px" label="姓名"/>
-    <s:textfield  cssClass="input" name="aid" cssStyle="width: 220px" label="学号"/>
-    <s:textarea cssClass="input" name="reason" cssStyle="width: 220px;height: 220px;" label="100字以内" labelposition="left" />
-    <s:textfield cssClass="input" name="classid" cssStyle="width: 220px" label="教室编号"/>
-    <s:set name="pd"
-           value="#{'1':{'1-2','3-4','5-6','7-8','9-10'},
+<div>
+    <s:form action="Classroom_sub" name="su">
+        <s:textfield cssClass="input" name="aname" cssStyle="width: 220px" label="姓名"/>
+        <s:textfield  cssClass="input" name="aid" cssStyle="width: 220px" label="学号"/>
+        <s:textarea cssClass="input" name="reason" cssStyle="width: 220px;height: 220px;" label="100字以内" labelposition="left" />
+        <s:textfield cssClass="input" name="classid" cssStyle="width: 220px" label="教室编号"/>
+        <s:set name="pd"
+               value="#{'1':{'1-2','3-4','5-6','7-8','9-10'},
                '2':{'1-2','3-4','5-6','7-8','9-10'},
                '3':{'1-2','3-4','5-6','7-8','9-10'},
                '4':{'1-2','3-4','5-6','7-8','9-10'},
                '5':{'1-2','3-4','5-6','7-8','9-10'},
                '6':{'1-2','3-4','5-6','7-8','9-10'},
                '7':{'1-2','3-4','5-6','7-8','9-10'}}"/>
-    <s:select cssClass="input" name="year" label="周" labelposition="top" list="{'1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22'}"/>
-    <s:doubleselect doubleCssClass="input" cssClass="input" doubleList="#pd[top]" doubleName="day" label="星期:课时" labelposition="top"  list="#pd.keySet()" name="month"/>
-    <%--下拉框。。。不知为何会变红。。。当改变第一个下拉框时，第二个下拉框的值会随之改变--%>
-    <s:submit cssStyle="display:block;
+        <s:select cssClass="input" name="year" label="周" labelposition="top" list="{'1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22'}"/>
+        <s:doubleselect doubleCssClass="input" cssClass="input" doubleList="#pd[top]" doubleName="day" label="星期:课时" labelposition="top"  list="#pd.keySet()" name="month"/>
+        <%--下拉框。。。不知为何会变红。。。当改变第一个下拉框时，第二个下拉框的值会随之改变--%>
+        <s:submit cssStyle="display:block;
 width:80px;
 font-weight:bold;
 color:#FFFFFF;
 background-color:#bebebe;
-text-align:center;" value="提交" />
-</s:form>
+text-align:center; float:left;" value="提交" />
+    </s:form>
+</div>
+
+
 <%
 }
 else

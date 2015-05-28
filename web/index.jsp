@@ -16,13 +16,19 @@
       body{ text-align:center;background-image: url("/img/login.jpg");background-size:100% 120%  }
       div.login{
           position:absolute;
-          top: 26%;
+          top: 25%;
           left: 45%;
       }/* 登录框的css*/
+      div{
+          width:300px;
+          height:300px;
+      }
       .cor{
           position:absolute;
-          top: 64%;
-          left: 10%;
+          top: 43%;
+          left: 1%;
+          width: 120px;
+          height: 100px;
       }/* 验证码*/
        a:link,a:visited{
            display:block;
@@ -34,8 +40,9 @@
            text-decoration:none;
        }
        img{
-           height: 4%;
-           width:100%;
+           float: left;
+           height:30px ;
+           width:100px;
        }
       ul
       {
@@ -64,33 +71,38 @@
       request.getSession().setAttribute("user",null);
   %>
   <body>
-  <div class="login">
-      <s:form name="js" action="Login_login">
-          <s:actionmessage/><br/>
-          <s:textfield cssClass="input" name="username" label="用户名" /><br/>
-          <s:password cssClass="input" name="password" label="密码" /><br/>
-          <s:radio name="way" label="请选择登录方式" list="{'教师','部门'}"/>
-          <s:textfield cssClass="input" name="verfi" size="6"/>
-          <s:submit cssStyle="display:block;
+  <div>
+      <div class="login">
+          <s:form name="js" action="Login_login">
+              <s:actionmessage/><br/>
+              <s:textfield cssClass="input" name="username" label="用户名" /><br/>
+              <s:password cssClass="input" name="password" label="密码" /><br/>
+              <s:radio name="way" label="请选择登录方式" list="{'教师','部门'}"/>
+              <s:textfield cssClass="input" name="verfi" size="6"/>
+              <s:submit cssStyle="display:block;
 width:40px;
 font-weight:bold;
 color:#FFFFFF;
 background-color:#bebebe;
 text-align:center;" value="登录"/>
-      </s:form>
-      <div class="cor">
-          <ul>
-              <li><img src="Login_img" id="img"></li>
-              <li><a href="javascript:_change()">换一张</a></li>
-          </ul>
-      </div>
+          </s:form>
+          <div class="cor">
+              <ul>
+                  <li><img src="Login_img" id="img"></li>
+                  <li><a href="javascript:_change()">换一张</a></li>
+              </ul>
+          </div>
 
+      </div>
   </div>
+
   <%
       if (request.getSession().getAttribute("cuowu")!=null){
   %>
   <%=request.getSession().getAttribute("cuowu")%>
-
+<%
+    request.getSession().setAttribute("cuowu",null);
+%>
 <%
     }
 %>

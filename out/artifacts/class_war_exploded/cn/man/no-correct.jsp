@@ -43,27 +43,34 @@
             overflow: visible;
         }
         div.from{
-                 position:absolute;bottom: 0px; left: 30px;
+                 position:absolute;top: 500px; left: 35px;
+            width:500px;
              }
+        div{
+            width:500px;
+        }
     </style>
 </head>
 <body>
 <%
     if (ConSql.validationUserName("部门", (String) request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。
 %>
-<%=ConApply.noCorrect()%>
-<div class="from">
-    <s:form action="Correct_resu" name="n1">
-        <s:textfield cssClass="input" name="id" label="批改的id"></s:textfield>
-        <s:select cssClass="input" list="{'是','否'}" label="是否同意申请" name="result"/>
-        <s:submit cssStyle="display:block;
+<div>
+    <%=ConApply.noCorrect()%>
+    <div class="from">
+        <s:form action="Correct_resu" name="n1">
+            <s:textfield cssClass="input" name="id" label="批改的id"></s:textfield>
+            <s:select cssClass="input" list="{'是','否'}" label="是否同意申请" name="result"/>
+            <s:submit cssStyle="display:block;
 width:80px;
 font-weight:bold;
 color:#FFFFFF;
 background-color:#bebebe;
 text-align:center;" value="发送邮件"/>
-    </s:form>
+        </s:form>
+    </div>
 </div>
+
 <%
 }
 else

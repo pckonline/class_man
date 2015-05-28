@@ -13,6 +13,10 @@
 
     <title></title>
     <style>
+        div{
+            width:700px;
+            height:700px;
+        }
         ul{
             list-style-type: none;
             overflow:hidden;
@@ -32,22 +36,22 @@
     </style>
 </head>
 <body>
-<%--<%--%>
-    <%--if (ConSql.validationUserName("教师", (String) request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。--%>
-<%--%>--%>
+<%
+    if (ConSql.validationUserName("教师", (String) request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。
+%>
+<div><%=ConApply.checkResult()%></div>
 
-<%=ConApply.checkResult()%>
-<%--<%--%>
-<%--}--%>
-<%--else--%>
-<%--{--%>
-<%--%>--%>
-<%--<%--%>
-    <%--request.getRequestDispatcher("/index.jsp").forward(request,response);//当为空时，返回登录界面。--%>
-<%--%>--%>
-<%--<%--%>
-    <%--}--%>
-<%--%>--%>
+<%
+}
+else
+{
+%>
+<%
+    request.getRequestDispatcher("/index.jsp").forward(request,response);//当为空时，返回登录界面。
+%>
+<%
+    }
+%>
 
 
 </body>

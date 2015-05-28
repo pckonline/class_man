@@ -39,6 +39,10 @@
             height: 580px;
             width: 1300px;
         }
+        div{
+            width: 700px;
+            height:700px;
+        }
     </style>
 
 </head>
@@ -46,16 +50,19 @@
 <%
     if (ConSql.validationUserName("部门", (String)request.getSession().getAttribute("user"))){//当获得的session不为空时，发送欢迎语句。
 %>
-<ul>
-    <li style="color:#f75000">欢迎您：<%=request.getSession().getAttribute("user")%></li>
-    <li><a href="/cn/success-man.jsp">返回首页</a> <a href="/index.jsp">注销</a></li>
-</ul>
-<ul class="sea">
-    <li><b><a  href="/cn/man/no-correct.jsp" target="iframe_1">查看未批改的申请</a></b></li>
-</ul>
-<ul>
-    <iframe name="iframe_1" frameborder="0"></iframe>
-</ul>
+<div>
+    <ul>
+        <li style="color:#f75000">欢迎您：<%=request.getSession().getAttribute("user")%></li>
+        <li><a href="/cn/success-man.jsp">返回首页</a> <a href="/index.jsp">注销</a></li>
+    </ul>
+    <ul class="sea">
+        <li><b><a  href="/cn/man/no-correct.jsp" target="iframe_1">查看未批改的申请</a></b></li>
+    </ul>
+    <ul>
+        <iframe name="iframe_1" frameborder="0"></iframe>
+    </ul>
+</div>
+
 <%
 }
 else
