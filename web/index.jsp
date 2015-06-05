@@ -72,6 +72,7 @@
   %>
   <body>
   <div>
+      <input type="" />
       <div class="login">
           <s:form name="js" action="Login_login">
               <s:actionmessage/><br/>

@@ -35,6 +35,7 @@
     <s:form action="Classroom_sub" name="su">
         <s:textfield cssClass="input" name="aname" cssStyle="width: 220px" label="姓名"/>
         <s:textfield  cssClass="input" name="aid" cssStyle="width: 220px" label="学号"/>
+        <s:textfield  cssClass="input" name="amail" cssStyle="width: 220px" label="邮箱"/>
         <s:textarea cssClass="input" name="reason" cssStyle="width: 220px;height: 220px;" label="100字以内" labelposition="left" />
         <s:textfield cssClass="input" name="classid" cssStyle="width: 220px" label="教室编号"/>
         <s:set name="pd"

@@ -15,6 +15,16 @@ public class ClassroomAction  extends ActionSupport{
     private String month;
     private String day;
     private String classid;
+    private String amail;
+
+    public String getAmail() {
+        return amail;
+    }
+
+    public void setAmail(String amail) {
+        this.amail = amail;
+    }
+
     public String getYear() {
         return year;
     }
