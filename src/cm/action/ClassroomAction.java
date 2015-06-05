@@ -1,6 +1,7 @@
 package cm.action;
 
 import Dao.ConApply;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -82,15 +83,26 @@ public class ClassroomAction  extends ActionSupport{
     }
 
     public String sub(){
-        String time = getYear()+"-"+getMonth()+"-"+getDay();
-        ConApply.classApply(getAname(),getAid(),getReason(),time,getClassid(),"未批改");
-        setAid("");
-        setAname("");
-        setClassid("");
-        setDay("");
-        setMonth("");
-        setYear("");
-        setReason("");
+        ActionContext abc = ActionContext.getContext();
+        if (getDay().equals("")||getMonth().equals("")||getAid().equals("")||getAmail().equals("")||getAname().equals("")||getClassid().equals("")||getReason().equals("")||getYear().equals("")){
+            String s = "<script language=\"JavaScript\">alert(\"请输入完整的信息！\")</script>";
+            abc.getSession().put("cuowutijiao",s);
+        }
+        else {
+            String time = getYear() + "-" + getMonth() + "-" + getDay();
+            ConApply.classApply(getAname(), getAid(), getReason(), time, getClassid(), "未批改", getAmail());
+            setAid("");
+            setAname("");
+            setClassid("");
+            setDay("");
+            setMonth("");
+            setYear("");
+            setReason("");
+            setAmail("");
+            String s = "";
+            abc.getSession().put("cuowutijiao",s);
+            return SUCCESS;
+        }
         return SUCCESS;
     }
 

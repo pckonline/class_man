@@ -60,7 +60,7 @@
     <div class="from">
         <s:form action="Correct_resu" name="n1">
             <s:textfield cssClass="input" name="id" label="批改的id"></s:textfield>
-            <s:select cssClass="input" list="{'是','否'}" label="是否同意申请" name="result"/>
+            <s:select cssClass="input" list="{'是','否'}" label="是否同意申请" name="result" />
             <s:submit cssStyle="display:block;
 width:80px;
 font-weight:bold;

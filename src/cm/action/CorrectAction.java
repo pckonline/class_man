@@ -1,6 +1,7 @@
 package cm.action;
 
 import Dao.ConApply;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -26,7 +27,17 @@ public class CorrectAction extends ActionSupport {
         this.result = result;
     }
     public String resu(){
-        ConApply.rest(getId(),getResult());
-        return SUCCESS;
+
+            ActionContext ac = ActionContext.getContext();
+            ac.getSession().put("mail",null);
+            ConApply.rest(getId(),getResult());
+            String mail=ConApply.toMail(getId());
+            ac.getSession().put("mail",mail);
+            if (getResult().equals("是")){
+                return SUCCESS;
+        }
+        else {
+                return ERROR;
+            }
     }
 }

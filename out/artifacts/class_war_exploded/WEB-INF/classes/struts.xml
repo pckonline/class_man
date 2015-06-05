@@ -22,7 +22,8 @@
             <result name="success">/cn/class/subtab.jsp</result>
         </action>
         <action name="Correct_*" class="cm.action.CorrectAction" method="{1}">
-            <result name="success">/cn/man/no-correct.jsp</result>
+            <result name="success">/cn/man/tomail.jsp</result>
+            <result name="error">/cn/man/notomail.jsp</result>
         </action>
     </package>
 </struts>

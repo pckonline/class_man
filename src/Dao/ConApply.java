@@ -1,15 +1,12 @@
 package Dao;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
  * Created by online on 15-4-19.
  */
 public class ConApply {
-    public static void classApply(String aname, String aid, String reason, String time, String classid, String state) {
+    public static void classApply(String aname, String aid, String reason, String time, String classid, String state,String amail) {
         //写入申请表
         Connection con = null;
         ResultSet res = null;
@@ -17,7 +14,7 @@ public class ConApply {
         try {
             con = ConSql.getCon();
             sta = con.createStatement();
-            String sql = "insert into classApply(aname,aid,reason,time,classid,state) values(" + "'" + aname + "'" + "," + "'" + aid + "'" + "," + "'" + reason + "'" + "," + "'" + time + "'" + "," + "'" + classid + "'" + "," + "'" + state + "'" + ");";
+            String sql = "insert into classApply(aname,aid,reason,time,classid,state,amail) values(" + "'" + aname + "'" + "," + "'" + aid + "'" + "," + "'" + reason + "'" + "," + "'" + time + "'" + "," + "'" + classid + "'" + "," + "'" + state + "'"+","+"'" + amail + "'" + ");";
             sta.executeUpdate(sql);
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,15 +47,18 @@ public class ConApply {
             e.printStackTrace();
             return requ;
         }
+        ConSql.closeAll(res,sta,con);
         if (i > 0) {
             return requ;
         } else {
             return kong;
+
         }
+
 
     }
 
-    public static void rest(String id, String result) {
+    public static void rest(String id, String result) {//批改
         Connection con = null;
         Statement sta = null;
         try {
@@ -69,7 +69,29 @@ public class ConApply {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        ConSql.closeAll(null,sta,con);
     }
+    public static String toMail(String id){
+        Connection con = null;
+        PreparedStatement sta = null;
+        ResultSet res = null;
+        String mail=null;
+        try {
+            con = ConSql.getCon();
+            String sql = "select amail from classApply where id=?;";
+            sta = con.prepareStatement(sql);
+            sta.setString(1,id);
+            res=sta.executeQuery();
+            while (res.next()){
+                mail=res.getString(1);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        ConSql.closeAll(res,sta,con);
+        return  mail;
+    }
+
 
     public static String checkResult() {
         //用户查看批改的结果
@@ -93,7 +115,8 @@ public class ConApply {
             e.printStackTrace();
             return requ;
         }
-
+        ConSql.closeAll(res,sta,con);
             return requ;
+
     }
 }

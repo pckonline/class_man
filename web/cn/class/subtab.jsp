@@ -58,7 +58,16 @@ text-align:center; float:left;" value="提交" />
     </s:form>
 </div>
 
-
+<%
+    if (request.getSession().getAttribute("cuowutijiao")!=null){
+%>
+<%=request.getSession().getAttribute("cuowutijiao")%>
+<%
+    request.getSession().setAttribute("cuowutijiao",null);
+%>
+<%
+    }
+%>
 <%
 }
 else
